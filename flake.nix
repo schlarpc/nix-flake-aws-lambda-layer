@@ -40,7 +40,7 @@
             cd "${prefix}/.."
             cat "${pkgs.buildPackages.referencesByPopularity layer-contents}" | \
                 xargs realpath --relative-to="$(pwd)" | \
-                ${pkgs.zip}/bin/zip -o -X -r -@ "$out"
+                ${pkgs.zip}/bin/zip -o -X -y -r -@ "$out"
           '';
         }));
       defaultPackage = forAllSystems (system: self.packages.${system}.nix-prefixed);
